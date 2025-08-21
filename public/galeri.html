@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="images/favicon.jpeg" type="image/x-icon">
+  <title id="pageTitle">Koperasi Produsen Energi, Pertambangan dan Perdagangan</title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <!-- nice select -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha256-mLBIhmBvigTFWPSCtvdu6a76T+3Xyt+K571hupeFLg4=" crossorigin="anonymous" />
+  <!-- font awesome style -->
+  <link href="css/font-awesome.min.css" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+
+  <style>
+    /* Improved Gallery Styles */
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .featured-gallery-item {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-direction: column;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      margin-bottom: 30px;
+    }
+    
+    .featured-image-container {
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f5f5f5;
+      overflow: hidden;
+    }
+    
+    .featured-gallery-item img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+    
+    .featured-caption {
+      padding: 25px;
+      background: white;
+    }
+    
+    .featured-caption h4 {
+      margin-top: 0;
+      color: #333;
+      font-size: 22px;
+    }
+    
+    .featured-caption p {
+      color: #666;
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+    
+    .gallery-item {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+    
+    .gallery-item:hover {
+      transform: translateY(-5px);
+    }
+    
+    .gallery-image-container {
+      height: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f5f5f5;
+      overflow: hidden;
+    }
+    
+    .gallery-item img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .gallery-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .featured-image-container {
+        height: 250px;
+      }
+      
+      .gallery-image-container {
+        height: 200px;
+      }
+    }
+    
+    /* Improved Eid Section */
+    .eid-container {
+      max-width: 600px;
+      margin: 30px auto;
+      text-align: center;
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    .eid-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+      margin: 15px 0;
+    }
+    
+    /* Navbar Styles */
+    .header_bottom {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: #333;
+      padding: 10px 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    
+    .navbar {
+      padding: 0;
+    }
+    
+    .navbar-nav {
+      align-items: center;
+    }
+    
+    .nav-item {
+      margin: 0 8px;
+    }
+    
+    .nav-link {
+      color: white !important;
+      font-weight: 500;
+      font-size: 14px;
+      padding: 10px 15px !important;
+      text-transform: uppercase;
+      transition: all 0.3s;
+      border-radius: 4px;
+    }
+    
+    .nav-link:hover {
+      color: white !important;
+      background-color: #555;
+    }
+    
+    .dropdown-menu {
+      background-color: #444;
+      border: none;
+      border-radius: 0 0 5px 5px;
+    }
+    
+    .dropdown-item {
+      color: white !important;
+      padding: 10px 20px;
+      transition: all 0.2s;
+    }
+    
+    .dropdown-item:hover {
+      background-color: #555;
+    }
+    
+    .navbar-toggler {
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+    
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
+    
+    @media (max-width: 992px) {
+      .navbar-collapse {
+        background-color: #333;
+        padding: 15px;
+        margin-top: 10px;
+        border-radius: 5px;
+      }
+      
+      .nav-item {
+        margin: 5px 0;
+      }
+      
+      .dropdown-menu {
+        background-color: #444;
+        margin-left: 15px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .nav-link {
+        font-size: 13px;
+        padding: 8px 12px !important;
+      }
+      
+      .navbar-brand img {
+        height: 40px !important;
+      }
+    }
+    
+    /* Footer Styles */
+    .footer_section {
+      background-color: #222;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+      width: 100%;
+      margin-top: 40px;
+    }
+    
+    .footer_section p {
+      margin-bottom: 0;
+      font-size: 14px;
+    }
+    
+    /* Service Section */
+    .service_section {
+      padding: 40px 0 20px 0;
+    }
+    
+    .heading_container.heading_center {
+      text-align: center;
+      margin-top: 30px;
+    }
+    
+    /* Lebaran Section */
+    .lebaran-section {
+      padding: 25px 0;
+      background-color: #f8f9fa;
+      margin-bottom: 40px;
+    }
+
+    .featured-caption p:first-child {
+      margin-bottom: 20px;
+    }
+    
+    /* Adjusted spacing between title and first image */
+    .gallery-container {
+      margin-top: 20px;
+    }
+    
+    /* Navbar fixed with proper spacing */
+    .header_bottom {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: #333;
+      padding: 10px 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    /* Body padding to compensate for fixed navbar */
+    body {
+      padding-top: 60px;
+    }
+
+    /* Gallery container adjustment */
+    .gallery-container {
+      margin-top: 10px;
+    }
+
+    /* Service section fine-tuning */
+    .service_section {
+      padding: 15px 0 5px 0 !important;
+    }
+
+    .heading_container.heading_center {
+      margin-bottom: 10px !important;
+    }
+    
+    /* Image caption style */
+    .image-caption {
+      padding: 15px;
+      text-align: center;
+      font-weight: 500;
+      color: #333;
+    }
+  </style>
+</head>
+
+<body>
+  <audio id="background-music" autoplay loop>
+    <source src="images/WhatsApp Audio 2025-03-22 at 01.08.14.mpeg" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+  
+  <!-- Navbar -->
+  <div class="header_bottom">
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container">
+            <a class="navbar-brand" href="index.html">
+                <img src="" alt="" style="height: 50px; width: auto;">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html" id="navHome">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html" id="navAbout">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="navManagement">
+                            Top Management
+                        </a>
+                        <div class="dropdown-menu transparent-box-dropdown" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="service.html">Penasehat</a>
+                            <a class="dropdown-item" href="advisor pengawas.html">Pendiri</a>
+                            <a class="dropdown-item" href="legal koperasi.html">Pengurus</a>
+                            <a class="dropdown-item" href="dewan pengawas.html">Pengawas</a>
+                            <a class="dropdown-item" href="anggota.html">Anggota</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="team.html" id="navContact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="portofolio.html" id="navPortfolio">Portofolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="berita.html" id="navNews">Berita</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="galeri.html" id="navGallery">Galeri</a>
+                    </li>
+                    <!-- Language Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" 
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="https://flagcdn.com/id.svg" alt="Indonesia" style="width: 20px; height: auto;"> ID
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="languageDropdown">
+                            <a class="dropdown-item" href="#" data-lang="id">
+                                <img src="https://flagcdn.com/id.svg" alt="Indonesia" style="width: 20px; height: auto;"> Indonesia
+                            </a>
+                            <a class="dropdown-item" href="#" data-lang="en">
+                                <img src="https://flagcdn.com/gb.svg" alt="English" style="width: 20px; height: auto;"> English
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+  </div>   
+
+  <!-- service section -->
+<section class="service_section" style="padding-top: 60px; padding-bottom: 5px;">
+    <div class="container">
+      <div class="heading_container heading_center" style="margin-bottom: 10px;">
+        <h2 id="sectionTitle">
+          Galeri Kegiatan
+        </h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ucapan Lebaran Section -->
+  <section class="lebaran-section">
+    <div class="eid-container">
+      <h3 style="color: #000; font-size: 1.5rem; font-weight: 700; margin-bottom: 15px;" id="eidTitle">SELAMAT HARI RAYA IDUL FITRI 1446 H</h3>
+      <img src="images/eid fit.jpeg" alt="Selamat Hari Raya Idul Fitri" class="eid-image" id="eidImage">
+      <div class="mt-2" style="color: #000;">
+        <p style="font-size: 0.95rem; color: #000; margin-bottom: 3px;" id="eidGreeting">"Minal Aidin Wal Faidzin, Mohon Maaf Lahir dan Batin"</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="footer_section">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <p id="footerText">
+            &copy; <span id="displayYear"></span> All Rights Reserved By Octa Mining Niaga
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- jQery -->
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <!-- popper js -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <!-- bootstrap js -->
+  <script src="js/bootstrap.js"></script>
+  <!-- owl slider -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <!-- nice select -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js" integrity="sha256-Zr3vByTlMGQhvMfgkQ5BtWRSKBGa2QlspKYJnkjZTmo=" crossorigin="anonymous"></script>
+  <!-- custom js -->
+  <script src="js/custom.js"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
+  <!-- End Google Map -->
+
+  <script>
+    // Translation data
+    const translations = {
+      id: {
+        // Navbar
+        "navHome": "Beranda",
+        "navAbout": "Tentang",
+        "navManagement": "Manajemen",
+        "navFounders": "Pendiri Koperasi",
+        "navAdvisors": "Penasehat Koperasi",
+        "navLegal": "Legal Koperasi",
+        "navSupervisors": "Dewan Pengawas",
+        "navMembers": "Anggota Koperasi",
+        "navContact": "Kontak",
+        "navPortfolio": "Portofolio",
+        "navNews": "Berita",
+        "navGallery": "Galeri",
+        
+        // Content
+        "sectionTitle": "Galeri Kegiatan",
+        "miningTitle": "Kegiatan Pertambangan Ramah Lingkungan",
+        "miningDesc1": "Koperasi Patuari Mining Niaga Telah Melakukan Sosialisasi Penambang Rakyat Desa Motandoi Dengan System Metode Eco Friendly / Ramah Lingkungan. Guna Menjaga Ekosistem, Serta Pengurusan Izin WPR & IPR Kerjasama Dengan Kelompok Penambang Rakyat Desa Motandoi, Bersama Tokoh Masyarakat Adat Lingkar Tambang, Babinsa, Kepala Desa /Sangaji Desa Motandoi.",
+        "miningDesc2": "Lokasi : Desa Motandoi - Kabupaten Bolaang Mongondow Selatan.",
+        "eidTitle": "SELAMAT HARI RAYA IDUL FITRI 1446 H",
+        "eidGreeting": "Minal Aidin Wal Faidzin, Mohon Maaf Lahir dan Batin",
+        "footerText": "All Rights Reserved By Octa Mining Niaga",
+        "pageTitle": "Koperasi Produsen Energi, Pertambangan dan Perdagangan",
+        
+        // Image alt texts
+        "miningImage": "Kegiatan Pertambangan",
+        "meetingImage": "Rapat Anggota Koperasi",
+        "trainingImage": "Pelatihan Karyawan",
+        "visitImage": "Kunjungan Lapangan",
+        "socialImage": "Acara Sosial",
+        "eidImage": "Selamat Hari Raya Idul Fitri"
+      },
+      en: {
+        // Navbar
+        "navHome": "Home",
+        "navAbout": "About",
+        "navManagement": "Top Management",
+        "navFounders": "Cooperative Founders",
+        "navAdvisors": "Cooperative Advisors",
+        "navLegal": "Cooperative Legal",
+        "navSupervisors": "Supervisory Board",
+        "navMembers": "Cooperative Members",
+        "navContact": "Contact",
+        "navPortfolio": "Portfolio",
+        "navNews": "News",
+        "navGallery": "Gallery",
+        
+        // Content
+        "sectionTitle": "Activity Gallery",
+        "miningTitle": "Environmentally Friendly Mining Activities",
+        "miningDesc1": "Patuari Mining Niaga Cooperative has conducted socialization for artisanal miners in Motandoi Village using an Eco-Friendly method/system to maintain the ecosystem. The activity included processing WPR & IPR permits in collaboration with artisanal miner groups from Motandoi Village, along with traditional community leaders around the mining area, Babinsa (village military officer), and the Village Head/Sangaji of Motandoi.",
+        "miningDesc2": "Location: Motandoi Village - South Bolaang Mongondow Regency.",
+        "eidTitle": "HAPPY EID AL-FITR 1446 H",
+        "eidGreeting": "Minal Aidin Wal Faidzin, Forgive Me for Any Wrongdoings",
+        "footerText": "All Rights Reserved By Octa Mining Niaga",
+        "pageTitle": "Energy, Mining and Trade Producer Cooperative",
+        
+        // Image alt texts
+        "miningImage": "Mining Activities",
+        "eidImage": "Happy Eid Al-Fitr"
+      }
+    };
+
+    // Function to change language
+    function changeLanguage(lang) {
+      // Update all text elements
+      for (const [key, value] of Object.entries(translations[lang])) {
+        const element = document.getElementById(key);
+        if (element) {
+          if (key.endsWith('Image')) {
+            element.alt = value;
+          } else {
+            element.textContent = value;
+          }
+        }
+      }
+      
+      // Update page title
+      document.title = translations[lang].pageTitle;
+      
+      // Update language dropdown display
+      const flagSrc = lang === 'id' ? 'https://flagcdn.com/id.svg' : 'https://flagcdn.com/gb.svg';
+      const langText = lang === 'id' ? 'ID' : 'EN';
+      document.querySelector('#languageDropdown img').src = flagSrc;
+      document.querySelector('#languageDropdown').innerHTML = `<img src="${flagSrc}" alt="${lang === 'id' ? 'Indonesia' : 'English'}" style="width: 20px; height: auto;"> ${langText}`;
+      
+      // Save language preference
+      localStorage.setItem('language', lang);
+    }
+
+    // Event listener for language dropdown
+    document.querySelectorAll('.dropdown-item[data-lang]').forEach(item => {
+      item.addEventListener('click', function(e) {
+        e.preventDefault();
+        const lang = this.getAttribute('data-lang');
+        changeLanguage(lang);
+      });
+    });
+
+    // Initialize language on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedLang = localStorage.getItem('language') || 'id';
+      changeLanguage(savedLang);
+      
+      // Set current year in footer
+      document.getElementById('displayYear').textContent = new Date().getFullYear();
+    });
+
+    // Audio player logic
+    const audio = document.getElementById('background-music');
+    const musicParts = [
+      { start: 33, end: 264 },
+      { start: 264, end: audio.duration }
+    ];
+
+    let currentPart = localStorage.getItem('currentPart') || 0;
+    let currentTime = localStorage.getItem('currentTime') || musicParts[currentPart].start;
+    audio.currentTime = currentTime;
+
+    audio.addEventListener('timeupdate', () => {
+      localStorage.setItem('currentTime', audio.currentTime);
+      localStorage.setItem('currentPart', currentPart);
+      if (audio.currentTime >= musicParts[currentPart].end) {
+        currentPart++;
+        if (currentPart >= musicParts.length) {
+          currentPart = 0;
+          audio.currentTime = musicParts[currentPart].start;
+        } else {
+          audio.currentTime = musicParts[currentPart].start;
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
