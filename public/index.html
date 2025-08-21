@@ -8,7 +8,6 @@
     <link rel="shortcut icon" href="images/favicon.jpeg" type="image/x-icon">
     <title>Koperasi Produsen Energi, Pertambangan dan Perdagangan</title>
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -47,11 +46,12 @@
         }
     </script>
     
-    <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
     
     <style type="text/css">
+
+        
         @font-face {
             font-family: 'Trajan Pro';
             src: url('fonts/TrajanPro-Regular.ttf') format('truetype');
@@ -71,24 +71,29 @@
             transform: none;
         }
         
+        /* CSS Baru untuk Rotasi Gambar */
         .hero-bg {
             background-size: cover;
             background-position: center;
-            transition: transform 10s ease;
+            opacity: 0; /* Semua gambar awal disembunyikan */
+            transition: opacity 2s ease-in-out;
+        }
+        
+        .hero-bg.active {
+            opacity: 1; /* Tampilkan gambar yang aktif */
         }
         
         .hero-bg.zoom {
             transform: scale(1.1);
+            transition: transform 10s ease; /* Transisi zoom tetap ada */
         }
         
         .partner-logo {
             transition: all 0.3s ease;
-            filter: grayscale(100%);
-            opacity: 0.7;
+            opacity: 0.9;
         }
         
         .partner-logo:hover {
-            filter: grayscale(0%);
             opacity: 1;
             transform: scale(1.1);
         }
@@ -181,25 +186,81 @@
             transform: translateY(-5px);
         }
         
+        /* Warna khusus untuk mitra dan bank - DIUBAH MENJADI PUTIH */
+        .partner-logo {
+            background: white;
+            border: 2px solid #e5e7eb;
+        }
+        
         @media (max-width: 768px) {
-            .hero-bg:nth-child(1) {
+            .hero-bg[data-index="0"] {
                 background-image: url('images/bg-new/bg-1-mobile.jpeg') !important;
             }
-            .hero-bg:nth-child(2) {
+            .hero-bg[data-index="1"] {
                 background-image: url('images/bg-new/bg-2-mobile.jpeg') !important;
             }
-            .hero-bg:nth-child(3) {
+            .hero-bg[data-index="2"] {
                 background-image: url('images/bg-new/enhanced_image-mobile.jpeg') !important;
             }
         }
+
+        .hero-bg {
+  opacity: 0;
+  transform: scale(1);
+  transition: opacity 1s ease-in-out, transform 15s ease;
+}
+
+.hero-bg.active {
+  opacity: 1;
+  transform: scale(1.1); /* Efek zoom pelan */
+}
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out, transform 15s ease;
+}
+
+.hero-bg.active {
+    opacity: 1;
+    transform: scale(1.05); /* zoom pelan */
+}
+
+/* Versi Desktop */
+@media (min-width: 769px) {
+    .hero-bg[data-index="0"] {
+        background-image: url('images/bg-new/bg-new1.jpeg');
+    }
+    .hero-bg[data-index="1"] {
+        background-image: url('images/bg-new/bg-new2.jpeg');
+    }
+    .hero-bg[data-index="2"] {
+        background-image: url('images/bg-new/bg-new3.jpeg');
+    }
+}
+
+/* Versi Mobile */
+@media (max-width: 768px) {
+    .hero-bg[data-index="0"] {
+        background-image: url('images/bg-new/mobile/bg-new1-mobile.jpeg');
+    }
+    .hero-bg[data-index="1"] {
+        background-image: url('images/bg-new/mobile/bg-new2-mobile.jpeg');
+    }
+    .hero-bg[data-index="2"] {
+        background-image: url('images/bg-new/mobile/bg-new3-mobile.jpeg');
+    }
+}
+
+
     </style>
 </head>
 
 <body class="font-sans bg-gray-50 flex flex-col min-h-screen">
-    <!-- Progress Bar -->
     <div class="progress-bar"></div>
     
-    <!-- Back to Top Button -->
     <div class="back-to-top">
         <i class="fas fa-arrow-up"></i>
     </div>
@@ -209,13 +270,24 @@
         Your browser does not support the audio element.
     </audio>
     
-    <!-- Hero Section -->
-    <div class="relative h-screen overflow-hidden">
-        <div class="absolute inset-0">
-            <div class="absolute inset-0 bg-cover bg-center transition-all duration-1000 hero-bg zoom" style="background-image: url('images/bg-new/bg-new1.jpeg');"></div>
-        </div>
+ <div class="relative h-screen overflow-hidden">
+  <div class="absolute inset-0">
+
+    
+    <!-- HERO SECTION -->
+<section class="relative h-screen overflow-hidden">
+  <div class="absolute inset-0">
+    <div class="absolute inset-0 bg-cover bg-center hero-bg active" 
+         style="background-image: url('images/bg-new/bg-new1.jpeg');"></div>
+    <div class="absolute inset-0 bg-cover bg-center hero-bg" 
+         style="background-image: url('images/bg-new/bg-new2.jpeg');"></div>
+    <div class="absolute inset-0 bg-cover bg-center hero-bg" 
+         style="background-image: url('images/bg-new/bg-new3.jpeg');"></div>
+  </div>
+  </div>
+</div>
+
         
-        <!-- Navbar -->
         <nav id="navbar" class="fixed top-0 left-0 w-full z-50 bg-black bg-opacity-70 backdrop-blur-sm">
             <div class="container mx-auto px-4">
                 <div class="flex justify-between items-center py-4">
@@ -223,14 +295,12 @@
                         <img src="" alt="" class="h-12 w-auto">
                     </a>
                     
-                    <!-- Hamburger Button -->
                     <button id="mobile-menu-btn" class="lg:hidden text-white focus:outline-none">
                         <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-16 6h16"/>
                         </svg>
                     </button>
                     
-                    <!-- Desktop Menu -->
                     <div class="hidden lg:flex items-center space-x-8">
                         <a href="index.html" class="text-white hover:text-primary transition-colors nav-link">Home</a>
                         <a href="about.html" class="text-white hover:text-primary transition-colors nav-link">About</a>
@@ -269,12 +339,10 @@
                     </div>
                 </div>
                 
-                <!-- Mobile Menu -->
                 <div id="mobile-menu" class="lg:hidden hidden flex-col bg-black bg-opacity-90 rounded-md mt-2 px-4 py-4 space-y-2">
                     <a href="index.html" class="block text-white hover:text-primary transition-colors py-2">Home</a>
                     <a href="about.html" class="block text-white hover:text-primary transition-colors py-2">About</a>
                     
-                    <!-- Top Management collapsible -->
                     <button id="mobile-top-btn" class="w-full text-left text-white hover:text-primary transition-colors flex items-center justify-between py-2">
                         Top Management
                         <span id="mobile-top-arrow" class="ml-2">&#9660;</span>
@@ -293,7 +361,6 @@
                     <a href="berita.html" class="block text-white hover:text-primary transition-colors py-2">Berita</a>
                     <a href="galeri.html" class="block text-white hover:text-primary transition-colors py-2">Galeri</a>
                     
-                    <!-- Language Switcher -->
                     <div class="flex gap-2 mt-4 pt-4 border-t border-gray-700">
                         <a href="#" class="dropdown-item flex items-center gap-1 text-white hover:text-primary px-3 py-2 rounded transition-colors" data-lang="id">
                             <img src="https://flagcdn.com/id.svg" alt="Indonesia" class="w-5 h-5"> ID
@@ -306,7 +373,6 @@
             </div>
         </nav>
         
-        <!-- Hero Content -->
         <div class="absolute inset-0 flex items-center justify-center z-10">
             <div class="text-center text-white px-4 max-w-4xl mx-auto">
                 <h1 id="heading" class="text-5xl md:text-6xl font-display font-bold mb-6 leading-tight animate-fadeIn">Koperasi Energi <br> Pertambangan, Perdagangan</h1>
@@ -322,7 +388,6 @@
             </div>
         </div>
         
-        <!-- Scroll Indicator -->
         <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
             <div class="w-6 h-10 border-2 border-white border-opacity-50 rounded-full flex justify-center">
                 <div class="w-1 h-3 bg-white bg-opacity-50 rounded-full mt-2"></div>
@@ -330,7 +395,6 @@
         </div>
     </div>
 
-    <!-- Service Section -->
     <section id="about" class="py-20 bg-white fade-in-section">
         <div class="container mx-auto px-4">
             <div class="text-center max-w-4xl mx-auto">
@@ -347,7 +411,6 @@
         </div>
     </section>
 
-    <!-- Team Section -->
     <section class="py-16 bg-gray-100 fade-in-section">
         <div class="container mx-auto px-4">
             <h2 id="teamTitle" class="text-3xl font-bold text-center mb-4 text-secondary">Sumber Daya Manusia</h2>
@@ -369,75 +432,92 @@
         </div>
     </section>
 
-    <!-- Mitra Section -->
     <section class="py-16 bg-white fade-in-section">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-12 text-secondary">Mitra Kami</h2>
             
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
                 <div class="flex flex-col items-center">
-                    <img src="images/esdm-removebg-preview (1).png" alt="Mitra 1" class="w-24 h-24 object-contain rounded-lg shadow-md border-2 border-primary bg-white mb-2 partner-logo">
+                    <div class="w-24 h-24 rounded-lg shadow-md mb-2 flex items-center justify-center p-2 partner-logo">
+                        <img src="images/esdm-removebg-preview (1).png" alt="Mitra 1" class="w-full h-full object-contain">
+                    </div>
                     <span class="text-xs text-secondary font-semibold">ESDM</span>
                 </div>
                 
                 <div class="flex flex-col items-center">
-                    <img src="images/kemenko.png" alt="Mitra 2" class="w-24 h-24 object-contain rounded-lg shadow-md border-2 border-primary bg-white mb-2 partner-logo">
+                    <div class="w-24 h-24 rounded-lg shadow-md mb-2 flex items-center justify-center p-2 partner-logo">
+                        <img src="images/kemenko.png" alt="Mitra 2" class="w-full h-full object-contain">
+                    </div>
                     <span class="text-xs text-secondary font-semibold">Kemenko</span>
                 </div>
                 
                 <div class="flex flex-col items-center">
-                    <img src="images/lingkungan-removebg-preview.png" alt="Mitra 3" class="w-24 h-24 object-contain rounded-lg shadow-md border-2 border-primary bg-white mb-2 partner-logo">
+                    <div class="w-24 h-24 rounded-lg shadow-md mb-2 flex items-center justify-center p-2 partner-logo">
+                        <img src="images/lingkungan-removebg-preview.png" alt="Mitra 3" class="w-full h-full object-contain">
+                    </div>
                     <span class="text-xs text-secondary font-semibold">Lingkungan</span>
                 </div>
                 
                 <div class="flex flex-col items-center">
-                    <img src="images/itb.png" alt="Mitra 4" class="w-24 h-24 object-contain rounded-full border-2 border-primary bg-white p-1 mb-2 partner-logo">
+                    <div class="w-24 h-24 rounded-full shadow-md mb-2 flex items-center justify-center p-2 partner-logo">
+                        <img src="images/itb.png" alt="Mitra 4" class="w-full h-full object-contain">
+                    </div>
                     <span class="text-xs text-secondary font-semibold">ITB</span>
                 </div>
                 
                 <div class="flex flex-col items-center">
-                    <img src="images/al.png" alt="Mitra 5" class="w-24 h-24 object-contain rounded-lg shadow-md border-2 border-primary bg-white mb-2 partner-logo">
+                    <div class="w-24 h-24 rounded-lg shadow-md mb-2 flex items-center justify-center p-2 partner-logo">
+                        <img src="images/al.png" alt="Mitra 5" class="w-full h-full object-contain">
+                    </div>
                     <span class="text-xs text-secondary font-semibold">AL</span>
                 </div>
                 
                 <div class="flex flex-col items-center">
-                    <img src="images/LOGO_KOARMADA_RI_PNG.png" alt="Mitra 6" class="w-24 h-24 object-contain rounded-lg shadow-md border-2 border-primary bg-white mb-2 partner-logo">
+                    <div class="w-24 h-24 rounded-lg shadow-md mb-2 flex items-center justify-center p-2 partner-logo">
+                        <img src="images/LOGO_KOARMADA_RI_PNG.png" alt="Mitra 6" class="w-full h-full object-contain">
+                    </div>
                     <span class="text-xs text-secondary font-semibold">KOARMADA</span>
                 </div>
                 
                 <div class="flex flex-col items-center">
-                    <img src="images/siloam.png" alt="Mitra 7" class="w-24 h-24 object-contain rounded-lg shadow-md border-2 border-primary bg-white mb-2 partner-logo">
+                    <div class="w-24 h-24 rounded-lg shadow-md mb-2 flex items-center justify-center p-2 partner-logo">
+                        <img src="images/siloam.png" alt="Mitra 7" class="w-full h-full object-contain">
+                    </div>
                     <span class="text-xs text-secondary font-semibold">Siloam</span>
                 </div>
                 
                 <div class="flex flex-col items-center">
-                    <img src="images/iacpi-removebg-preview.png" alt="Mitra 8" class="w-24 h-24 object-contain rounded-lg shadow-md border-2 border-primary bg-white mb-2 partner-logo">
+                    <div class="w-24 h-24 rounded-lg shadow-md mb-2 flex items-center justify-center p-2 partner-logo">
+                        <img src="images/iacpi-removebg-preview.png" alt="Mitra 8" class="w-full h-full object-contain">
+                    </div>
                     <span class="text-xs text-secondary font-semibold">IACPI</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Bank Section -->
     <section class="py-16 bg-gray-100 fade-in-section">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-12 text-secondary">Bank</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 justify-center max-w-2xl mx-auto">
                 <div class="flex flex-col items-center">
-                    <img src="images/bca.png" alt="Bank BCA" class="w-24 h-24 object-contain rounded-lg shadow-md border-2 border-primary bg-white mb-2 partner-logo">
+                    <div class="w-24 h-24 rounded-lg shadow-md mb-2 flex items-center justify-center p-2 partner-logo">
+                        <img src="images/bca.png" alt="Bank BCA" class="w-full h-full object-contain">
+                    </div>
                     <span class="text-xs text-secondary font-semibold">BCA</span>
                 </div>
                 
                 <div class="flex flex-col items-center">
-                    <img src="images/bank-sulut.png" alt="Bank Sulut" class="w-24 h-24 object-contain rounded-lg shadow-md border-2 border-primary bg-white mb-2 partner-logo">
+                    <div class="w-24 h-24 rounded-lg shadow-md mb-2 flex items-center justify-center p-2 partner-logo">
+                        <img src="images/bank-sulut.png" alt="Bank Sulut" class="w-full h-full object-contain">
+                    </div>
                     <span class="text-xs text-secondary font-semibold">Bank Sulut</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer Section -->
     <footer class="bg-gray-700 py-8 w-full mt-auto">
         <div class="container mx-auto px-4">
             <p id="footerText" class="text-center text-white opacity-90">
@@ -446,7 +526,6 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
     <script>
         // Set current year in the footer
         document.getElementById('displayYear').textContent = new Date().getFullYear();
@@ -514,16 +593,18 @@
         });
         
         // Background image zoom effect on hero section
-        const heroBg = document.querySelector('.hero-bg');
+        const heroBgs = document.querySelectorAll('.hero-bg');
         
-        heroBg.addEventListener('mousemove', function(e) {
-            const moveX = (e.pageX * -1 / 15);
-            const moveY = (e.pageY * -1 / 15);
-            this.style.transform = `scale(1.1) translateX(${moveX}px) translateY(${moveY}px)`;
-        });
-        
-        heroBg.addEventListener('mouseleave', function() {
-            this.style.transform = 'scale(1.1) translateX(0px) translateY(0px)';
+        heroBgs.forEach(heroBg => {
+            heroBg.addEventListener('mousemove', function(e) {
+                const moveX = (e.pageX * -1 / 15);
+                const moveY = (e.pageY * -1 / 15);
+                this.style.transform = `scale(1.1) translateX(${moveX}px) translateY(${moveY}px)`;
+            });
+            
+            heroBg.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1.1) translateX(0px) translateY(0px)';
+            });
         });
         
         // Smooth scrolling for anchor links
@@ -564,97 +645,26 @@
                 teamTitle: "Sumber Daya Manusia",
                 teamSubtitle: "Didukung oleh IATPI",
                 footerText: "&copy; <span id='displayYear'></span> All Rights Reserved By Octa Mining Niaga"
-            },
-            en: {
-                heading: "Energy Cooperative <br> Mining, Trade",
-                subheading: "Let's Partner With Us. To Become a Cooperative Member Towards Change",
-                tagline: "# Golden Indonesia #",
-                sectionTitle: "Octa Mining Niaga Cooperative, driving the people's economy.",
-                sectionContent: "Octa Mining Niaga Cooperative drives the people's economy through Integrated Corporation. The digitalization of Octa Mining Niaga Cooperative is gradually undergoing digital transformation, Present to help the welfare of the surrounding community and continues to strive for innovation in developing more modern cooperatives.",
-                sectionContent2: "Octa Mining Niaga is a Cooperative Producer of Renewable Energy, Mining, and Trade that Changes the Paradigm in Indonesia by Applying Eco-friendly and Innovative Approaches. Aiming to realize the ideals of Article 33 paragraph (3) of the 1945 Constitution. The article explains that the earth, water, and natural resources contained therein are controlled by the state and used for the welfare of the people. As well as the Supply Chain Concept in the World of Trade in the Micro, MSME, and Macro Sub-Sectors. In Order to Support the Government's Strategic Programs in Efforts to Improve the Welfare of the Wider Community and Indonesia's Young Generation.",
-                sectionTagline: "# Golden Indonesia #",
-                sectionSolution: '" Your Trade Solution "',
-                teamTitle: "Human Resources",
-                teamSubtitle: "Supported by IATPI",
-                footerText: "&copy; <span id='displayYear'></span> All Rights Reserved By Octa Mining Niaga"
             }
         };
 
-        // Function to change language
-        function changeLanguage(lang) {
-            document.getElementById("heading").innerHTML = content[lang].heading;
-            document.getElementById("subheading").textContent = content[lang].subheading;
-            document.getElementById("tagline").textContent = content[lang].tagline;
-            document.getElementById("sectionTitle").textContent = content[lang].sectionTitle;
-            
-            const sectionContents = document.querySelectorAll("#sectionContent");
-            if (sectionContents.length >= 1) {
-                sectionContents[0].textContent = content[lang].sectionContent;
-            }
-            if (sectionContents.length >= 2) {
-                sectionContents[1].textContent = content[lang].sectionContent2;
-            }
-            
-            document.getElementById("sectionTagline").textContent = content[lang].sectionTagline;
-            document.getElementById("sectionSolution").textContent = content[lang].sectionSolution;
-            document.getElementById("teamTitle").textContent = content[lang].teamTitle;
-            document.getElementById("teamSubtitle").textContent = content[lang].teamSubtitle;
-            document.getElementById("footerText").innerHTML = content[lang].footerText;
-
-            localStorage.setItem("language", lang);
-        }
-
-        // Event listeners for language dropdown
-        document.querySelectorAll('.dropdown-item[data-lang]').forEach(item => {
-            item.addEventListener('click', function (e) {
-                e.preventDefault();
-                const lang = this.getAttribute('data-lang');
-                changeLanguage(lang);
-                
-                // Update dropdown label
-                const flagSrc = this.querySelector('img').src;
-                const flagAlt = this.querySelector('img').alt;
-                const label = this.textContent.trim();
-                
-                const languageButton = document.querySelector('.group button.flex.items-center.gap-2');
-                if (languageButton) {
-                    languageButton.innerHTML = `
-                        <img src="${flagSrc}" alt="${flagAlt}" class="w-5 h-5"> ${lang.toUpperCase()}
-                    `;
-                }
-            });
-        });
-
-        // Set initial language on page load
-        document.addEventListener("DOMContentLoaded", function () {
-            const savedLang = localStorage.getItem("language") || "id";
-            changeLanguage(savedLang);
-        });
+        // **Skrip untuk Rotasi Gambar Latar Belakang**
+        let currentIndex = 0;
+        const backgrounds = document.querySelectorAll('.hero-bg');
         
-        // Background music control
-        const audio = document.getElementById('background-music');
-        const musicParts = [
-            { start: 33, end: 264 },
-            { start: 264, end: audio.duration }
-        ];
-
-        let currentPart = localStorage.getItem('currentPart') || 0;
-        let currentTime = localStorage.getItem('currentTime') || musicParts[currentPart].start;
-        audio.currentTime = currentTime;
-
-        audio.addEventListener('timeupdate', () => {
-            localStorage.setItem('currentTime', audio.currentTime);
-            localStorage.setItem('currentPart', currentPart);
-            if (audio.currentTime >= musicParts[currentPart].end) {
-                currentPart++;
-                if (currentPart >= musicParts.length) {
-                    currentPart = 0;
-                    audio.currentTime = musicParts[currentPart].start;
-                } else {
-                    audio.currentTime = musicParts[currentPart].start;
-                }
-            }
-        });
+        function changeBackground() {
+            // Hapus kelas 'active' dari semua gambar
+            backgrounds.forEach(bg => bg.classList.remove('active'));
+            
+            // Tambahkan kelas 'active' ke gambar berikutnya
+            currentIndex = (currentIndex + 1) % backgrounds.length;
+            backgrounds[currentIndex].classList.add('active');
+        }
+        
+        // Ganti gambar setiap 5 detik (5000 milidetik)
+        setInterval(changeBackground, 5000);
     </script>
+
+    
 </body>
 </html>
